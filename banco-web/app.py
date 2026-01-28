@@ -25,5 +25,30 @@ def deposito():
 
     return render_template("deposito.html", saldo=saldo, mensagem=mensagem)
 
+@app.route("/saque", methods=["GET", "POST"])
+def saque():
+    global saldo, extrato, numero_saques
+
+    mensagem = None
+
+    if request.method == "POST":
+        valor =float(request.form["valor"])
+
+        saldo, extrato, numero_saques, mensagem = models.sacar(
+            saldo=saldo,
+            valor=valor,
+            extrato=extrato,
+            limite=LIMITE,
+            numero_saques=numero_saques,
+            limite_saques=LIMITE_SAQUES
+        )
+
+    return render_template(
+        "saque.html",
+        saldo=saldo,
+        mensagem=mensagem,
+        numero_saques=numero_saques
+    )
+
 if __name__ == "__main__":
     app.run(debug=True)

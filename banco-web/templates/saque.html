@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saque</title>
+  </head>
+  <body>
+    <h2>Saque</h2>
+
+    {% if mensagem %}
+    <p>{{mensagem}}</p>
+    {% endif %}
+
+    <form method="post">
+      <input type="number" name="valor" step="0.01" required />
+      <button type="submit">Sacar</button>
+    </form>
+
+    <p>Saldo atual: R$ {{ saldo }}</p>
+    <p>Saques realizados hoje: {{ numero_saques }}</p>
+
+    <a href="/">Voltar</a>
+  </body>
+</html>
