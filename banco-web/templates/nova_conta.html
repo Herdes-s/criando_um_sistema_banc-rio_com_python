@@ -1,22 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Nova Conta</title>
-</head>
-<body>
-  <h2>Criar Conta Bancária</h2>
-
-  {% if mensagem %}
-    <p>{{ mensagem }}</p>
-  {% endif %}
-
-  <form method="post">
-    <input type="text" name="cpf" placeholder="CPF do usuário" required>
-    <button type="submit">Criar Conta</button>
-  </form>
-
-  <br>
-  <a href="/">Voltar</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Conta</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Criar Conta Bancária</h2>
+      {% if mensagem %}
+      <div class="mensagem {{ 'sucesso' if sucesso else 'erro' }}">
+        {{ mensagem }}
+      </div>
+      {% endif %}
+      
+      <form method="post">
+        <input type="text" name="cpf" placeholder="CPF do usuário" required />
+        <button type="submit">Criar Conta</button>
+      </form>
+      <br />
+      <a href="/">Voltar</a>
+    </div>
+  </body>
 </html>

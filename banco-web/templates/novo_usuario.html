@@ -1,28 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Novo Usuário</title>
-</head>
-<body>
-  <h2>Cadastrar Usuário</h2>
-
-  {% if mensagem %}
-    <p>{{ mensagem }}</p>
-  {% endif %}
-
-  {% if not sucesso %}
-    <form method="post">
-      <input type="text" name="nome" placeholder="Nome completo" required><br><br>
-      <input type="text" name="cpf" placeholder="CPF (somente números)" required><br><br>
-      <input type="text" name="data_nascimento" placeholder="Data de nascimento (dd-mm-aaaa)" required><br><br>
-      <input type="text" name="endereco" placeholder="Endereço completo" required><br><br>
-
-      <button type="submit">Cadastrar</button>
-    </form>
-  {% endif %}
-
-  <br>
-  <a href="/">Voltar</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novo Usuário</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+        <h2>Cadastrar Usuário</h2>
+        {% if mensagem %}
+        <div class="mensagem {{ 'sucesso' if sucesso else 'erro' }}">
+          {{ mensagem }}
+        </div>
+        {% endif %} {% if not sucesso %}
+        <form method="post">
+          <input
+            type="text"
+            name="nome"
+            placeholder="Nome completo"
+            required
+          /><br /><br />
+          <input
+            type="text"
+            name="cpf"
+            placeholder="CPF (somente números)"
+            required
+          /><br /><br />
+          <input
+            type="text"
+            name="data_nascimento"
+            placeholder="Data de nascimento (dd-mm-aaaa)"
+            required
+          /><br /><br />
+          <input
+            type="text"
+            name="endereco"
+            placeholder="Endereço completo"
+            required
+          /><br /><br />
+          <button type="submit">Cadastrar</button>
+        </form>
+        {% endif %}
+        <br />
+        <a href="/">Voltar</a>
+    </div>
+  </body>
 </html>

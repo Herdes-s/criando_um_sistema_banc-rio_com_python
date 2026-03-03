@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Banco Digital</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
   </head>
   <body>
-    <h1>Banco Digital</h1>
-
-    <ul>
-      <li><a href="/deposito">Depósito</a></li>
-      <li><a href="/saque">Saque</a></li>
-      <li><a href="/extrato">Extrato</a></li>
-      <li><a href="/usuario/novo">Novo Usuário</a></li>
-      <li><a href="/conta/nova">Nova Conta</a></li>
-    </ul>
+    <div class="container">
+        <h1>Banco Digital</h1>
+        <ul>
+          <li><a href="/deposito">Depósito</a></li>
+          <li><a href="/saque">Saque</a></li>
+          <li><a href="/extrato">Extrato</a></li>
+          <li><a href="/usuario/novo">Novo Usuário</a></li>
+          <li><a href="/conta/nova">Nova Conta</a></li>
+        </ul>
+    </div>
   </body>
 </html>

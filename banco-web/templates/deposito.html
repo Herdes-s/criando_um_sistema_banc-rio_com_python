@@ -4,21 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Depósito</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
   </head>
   <body>
-    <h2>Deposito</h2>
-
-    {% if mensagem %}
-    <p>{{ mensagem }}</p>
-    {% endif %}
-
-    <form method="post">
-      <input type="number" name="valor" step="0.01" required />
-      <button type="submit">Depósitar</button>
-    </form>
-
-    <p>Saldo atual: R$ {{saldo}}</p>
-
-    <a href="/">Voltar</a>
+    <div class="container">
+        <h2>Deposito</h2>
+        {% if mensagem %}
+        <div class="mensagem {{ 'sucesso' if sucesso else 'erro' }}">
+          {{ mensagem }}
+        </div>
+        {% endif %}
+        <form method="post">
+          <input type="number" name="valor" step="0.01" required />
+          <button type="submit">Depósitar</button>
+        </form>
+        <p>Saldo atual: R$ {{saldo}}</p>
+        <a href="/">Voltar</a>
+    </div>
   </body>
 </html>
